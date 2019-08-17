@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import CharacterCard from './CharacterCard';
 import { Grid, Image } from 'semantic-ui-react'
 
-export default function LocationsList() {
-  const [locations, setLocations] = ([]) ;
+export default function EspisodeList() {
+  const [episodes, setEpisodes] = ([]) ;
 
 
 
@@ -13,7 +13,7 @@ export default function LocationsList() {
 
   useEffect(() => {
     axios
-      .get("https://rickandmortyapi.com/api/locations/")
+      .get("https://rickandmortyapi.com/api/episodes/")
       .then(response => {
         setLocations(response.data.results);
       })
@@ -28,13 +28,14 @@ export default function LocationsList() {
 return ( 
   <section className='character-list grid-view'>
     <Grid centered columns={3} >
-      {locations.map(results => (
+      {episodes.map(results => (
         <Grid.Column width={5}>
           <CharacterCard  
-              name={results.name}
-              type={results.type}
-              dimensions={results.dimensions}
-              resident={results.resident}/>
+              name = {results.name}
+              airDate = {results.air_date}
+              episode = {results.episode}
+              character = {results.character}
+          />
               </Grid.Column>
 
       ))}
