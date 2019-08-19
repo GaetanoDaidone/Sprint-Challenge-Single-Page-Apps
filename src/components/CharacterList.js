@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import CharacterCard from './CharacterCard';
 import { Grid, Image } from 'semantic-ui-react'
 
+
 export default function CharacterList() {
-  const [characters, setCharacters] = ([]) ;
+  const [characters, setCharacters] = useState([]) ;
 
 
 

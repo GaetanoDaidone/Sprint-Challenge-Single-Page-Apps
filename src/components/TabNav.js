@@ -1,8 +1,16 @@
 import React from "react";
-import { Tab, Menu, Icon } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 
-// TODO: Add missing tabs below
-export default function TabNav() {
-
-};
+const TabNav = () => {
+    return (
+      <nav className="navbar">
+        <NavLink to="/">Home Page</NavLink>
+        <NavLink to="/characters"> Characters</NavLink>
+        <NavLink to="/locations"> Locations</NavLink>
+        <NavLink to="/episodes"> Episodes</NavLink>
+      </nav>
+    )
+  }
+  
+  export default TabNav
+    

@@ -1,41 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import CharacterCard from './CharacterCard';
+import EpisodeCard from './EpisodeCard';
 import { Grid, Image } from 'semantic-ui-react'
 
-export default function EspisodeList() {
-  const [episodes, setEpisodes] = ([]) ;
-
-
-
-  // TODO: Add useState to track data from useEffect
+export default function EpisodeList() {
+ const [episodes, setEpisodes] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://rickandmortyapi.com/api/episodes/")
-      .then(response => {
-        setLocations(response.data.results);
-      })
-        .catch(error => {
-          console.error('error', error)
-        })
-    // TODO: Add AJAX/API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-  }, []);
+    .get("https://rickandmortyapi.com/api/episode/")
+    .then(response => {
+      setEpisodes(response.data.results);
+    })
+    .catch(error => {
+      console.error('error', error)
+    })
+     }, [])
 
-
-return ( 
-  <section className='character-list grid-view'>
+  return ( 
+  <section className='episode-list grid-view'>
     <Grid centered columns={3} >
       {episodes.map(results => (
         <Grid.Column width={5}>
-          <CharacterCard  
+          <EpisodeCard  
               name = {results.name}
-              airDate = {results.air_date}
-              episode = {results.episode}
-              character = {results.character}
-          />
+              airDate={results.air_date}
+              episodeNum ={results.episode}/>
               </Grid.Column>
 
       ))}
